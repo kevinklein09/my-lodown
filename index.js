@@ -311,7 +311,43 @@ module.exports.every = every;
 
 
 /**
- * reduce: 
- * 
- * 
+ * reduce: Designed to loop over an array with a starting point of seed and applies the action function to each value in collection
+ * @param {Array}: Function takes in an input array
+ * @param {Function} action: The Function to be applied to each value in the array
+ * @param {Seed}: Function takes in an input seed as an initial starting value
+ * @return {Value}: Function returns a value
  */
+
+function reduce(array, func, seed){
+    let result;
+    if(seed === undefined) { 
+        result = array[0];
+        for(let i = 1; i < array.length; i++){ 
+            result = func(result, array[i], i, array); 
+        }
+    } else { 
+        result = seed; 
+        for(let i = 0; i < array.length; i++) {
+            result = func(result, array[i], i, array);
+        }
+    }
+    return result; 
+}
+
+module.exports.reduce = reduce; 
+
+
+/**
+ * extend: Function takes in a number of objects as inputs and copies the properties of each subsequent object input into the initial input object
+ * @param {Object}: Function takes in an initial object input
+ * @param {Object}: Function takes in an object input
+ * @param {...Objects}: Function takes in any number of object inputs
+ * @return {Object}: Function returns an object
+ */
+
+function extend(object1, object2, ...objects) { 
+    Object.assign(object1, object2, ...objects)  
+    return object1; 
+}
+
+module.exports.extend = extend; 
