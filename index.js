@@ -268,5 +268,50 @@ exports.module.pluck = pluck;
 
 
 /**
+ * every: Designed to loop over a collection, Array or Object, and applies the action Function to each value in the collection 
+ * @param {Array or Object} collection: The collection over which to iterate
+ * @param {Function} action: The Function to be applied to each value in the collection
+ * @return {Boolean}: Function returns a boolean 
+ */
+
+function every(collection, func) { 
+    if(func === undefined) {
+        if(Array.isArray(collection)) {
+            for(let i = 0; i < collection.length; i++) { 
+                if(!collection[i]) { 
+                    return false; 
+                }
+            }
+        } else { 
+            for(let key in collection) { 
+                if(!collection[key]) { 
+                    return false; 
+                }
+            }
+        }
+    } else { 
+        if(Array.isArray(collection)) {
+            for(let i = 0; i < collection.length; i++) {
+                if(func(collection[i], i, collection) === false) {
+                    return false; 
+                }
+            }
+        } else { 
+            for(let key in collection) {
+                if(func(collection[key], key, collection) === false) { 
+                    return false; 
+                }
+            }
+        }   
+    }
+    return true; 
+}
+
+module.exports.every = every;
+
+
+/**
+ * reduce: 
+ * 
  * 
  */
