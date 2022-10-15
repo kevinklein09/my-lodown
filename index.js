@@ -126,3 +126,43 @@ module.exports.last = last;
 }
 
 module.exports.indexOf = indexOf; 
+
+
+/**
+ * contains: Function takes in an array and value as inputs. Function returns true if input array contains input value and false otherwise
+ * @param {Array}: Function takes in an input array
+ * @param {Value}: Function takes in an input value
+ * @return {Boolean}: Function returns a boolean 
+ */
+
+function contains(arr, val) { 
+    return arr.includes(val) ? true : false; 
+}
+
+module.exports.contains = contains; 
+
+
+/**
+ * unique: Function takes in an input array and returns an array with all duplicates removed
+ * @param {Array}: Function takes in an input array
+ * @return {Array}: Function returns an array
+ */
+
+function unique(arr) { 
+    var newArray = []; 
+    for(var i = 0; i < arr.length; i++) { 
+        var indexNum = _.indexOf(arr, arr[i]); 
+        if(indexNum === i) { 
+            newArray.push(arr[i]); 
+        }
+    } 
+    return newArray; 
+}
+
+module.exports.unique = unique; 
+
+
+/**
+ * 
+ * 
+ */
