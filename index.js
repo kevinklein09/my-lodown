@@ -24,16 +24,43 @@ function each(collection, action) {
 module.exports.each = each;
 
 
+
 /**
  * identity: Function takes in an input value and returns it unchanged.
  * 
- * @param {Value }: Function takes in any input value.
- * @return {Value }: Function returns input value unchanged
+ * @param {Value}: Function takes in any input value
+ * @return {Value}: Function returns input value unchanged
  * 
  */
  var _ = {}; // use function declaration syntax
- _.identity = function(value) {
+ function identity(value) {
      return value;
  }
 
  module.exports.identity = identity;
+
+
+ /**
+  * typeOf: Function takes in an input value and returns data type of input value
+  * 
+  * @param {Value}: Function takes in any input value
+  * @return {Value}: Function returns data type of input value
+  */
+
+ function typeOf(value) {
+    if(Array.isArray(value) === true) { 
+        return "array"; 
+    } else if(Array.isArray(value) !== true && value === null) { 
+        return "null"; 
+    }
+
+    return typeof value; 
+ }
+
+ module.exports.typeOf = typeOf; 
+
+
+ /**
+  * 
+  * 
+  */
