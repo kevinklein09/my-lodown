@@ -163,6 +163,48 @@ module.exports.unique = unique;
 
 
 /**
- * 
+ * filter: Designed to to loop over an array and applies the aciton Function to each value in array
+ * @param {Array}: Function takes in an input array
+ * @param {Function} action: The Function to be applied to each value in the array
+ * @return {Array}: Function returns a new array of elements for which calling function returned true
+ */
+
+function filter(arr, func) { 
+    var newArray = []; 
+    for(var i = 0; i < arr.length; i++){ 
+        if(func(arr[i], i, arr) === true) { 
+            newArray.push(arr[i]); 
+        }
+    } 
+    return newArray; 
+}
+
+module.exports.filter = filter; 
+
+
+/**
+ * reject: Designed to to loop over an array and applies the aciton Function to each value in array
+ * @param {Array}: Function takes in an input array
+ * @param {Function} action: The Function to be applied to each value in the array
+ * @return {Array}: Function returns a new array of elements for which calling function returned false
+ */
+
+function reject(arr, func) { 
+    var newArray = []; 
+    for(var i = 0; i < arr.length; i++){ 
+        if(func(arr[i], i, arr) === false) { 
+            newArray.push(arr[i]); 
+        }
+    } 
+    return newArray; 
+}
+
+module.exports.reject = reject; 
+
+
+/**
+ * partition: Designed to to loop over an array and applies the aciton Function to each value in array
+ * @param {Array}:
+ * @param {Function}: 
  * 
  */
