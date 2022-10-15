@@ -204,7 +204,69 @@ module.exports.reject = reject;
 
 /**
  * partition: Designed to to loop over an array and applies the aciton Function to each value in array
- * @param {Array}:
- * @param {Function}: 
+ * @param {Array}: Function takes in an input array
+ * @param {Function} action: The Function to be applied to each value in the array
+ * @return {Array}: Function returns an array that is made of two sub-arrays
+ */
+
+function partition(arr, func) { 
+    var newArray = []; 
+    var falseArray = []; 
+    var trueArray = []; 
+    for(var i = 0; i < arr.length; i++) { 
+        if(func(arr[i], i, arr) === true) { 
+            trueArray.push(arr[i]); 
+        } else { 
+            falseArray.push(arr[i]); 
+        }
+    }
+    newArray.push(trueArray); 
+    newArray.push(falseArray); 
+
+    return newArray; 
+}
+
+module.exports.partition = partition; 
+
+
+/**
+ * map: Designed to loop over a collection, Array or Object, and applies the action Function to each value in the collection
+ * @param {Array or Object} collection: Function takes in an input array or object over which to iterate
+ * @param {Function} action: The Function to be applied to each value in the collection
+ * @return {Array}: Function returns the value of each Function call in a new array
+ */
+
+function map(collection, func){ 
+    var newArray = []; 
+    if(Array.isArray(collection) === true) { 
+        for(var i = 0; i < collection.length; i++) { 
+            newArray.push(func(collection[i], i, collection)); 
+        }
+    } else { 
+        for(var key in collection) { 
+            newArray.push(func(collection[key], key, collection)); 
+        }
+    }
+    return newArray; 
+}
+
+module.exports.map = map; 
+
+
+/**
+ * pluck: Function takes in an array of objects and a property as inputs and returns an array containing the value of the input property for every element in the input array
+ * @param {Array}: Function takes in an array of objects
+ * @param {Property}: Function takes in an input property
+ * @return {Array}: Function returns an array 
+ */
+
+function pluck(arr, property) { //create a function _.pluck that takes in two inputs, arr and key
+    return _.map(arr, function(e) {return e[property]}) //return an array containing the value of propery for every element in array using the _.map function
+}
+
+exports.module.pluck = pluck; 
+
+
+/**
  * 
  */
