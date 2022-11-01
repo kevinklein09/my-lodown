@@ -45,7 +45,7 @@ module.exports.each = each;
   * typeOf: Function takes in an input value and returns data type of input value
   * 
   * @param {Value}: Function takes in any input value
-  * @return {Value}: Function returns data type of input value
+  * @return {Value}: Function returns datatype of input value as a string
   */
 
  function typeOf(value) {
@@ -163,7 +163,7 @@ module.exports.unique = unique;
 
 
 /**
- * filter: Designed to to loop over an array and applies the aciton Function to each value in array
+ * filter: Designed to iterate through an array and create a new array filled with elements that pass a test provided by a function, without changing the original array
  * @param {Array}: Function takes in an input array
  * @param {Function} action: The Function to be applied to each value in the array
  * @return {Array}: Function returns a new array of elements for which calling function returned true
@@ -183,7 +183,7 @@ module.exports.filter = filter;
 
 
 /**
- * reject: Designed to to loop over an array and applies the aciton Function to each value in array
+ * reject: Designed to iterate through an array and create a new array filled with elements that pass a test provided by a function, without changing the original array
  * @param {Array}: Function takes in an input array
  * @param {Function} action: The Function to be applied to each value in the array
  * @return {Array}: Function returns a new array of elements for which calling function returned false
@@ -203,7 +203,7 @@ module.exports.reject = reject;
 
 
 /**
- * partition: Designed to to loop over an array and applies the aciton Function to each value in array
+ * partition: Designed to take in an array as an input and return two arrays - the first array containing the elements that pass the function test, and the second array containing the remaining input array elements
  * @param {Array}: Function takes in an input array
  * @param {Function} action: The Function to be applied to each value in the array
  * @return {Array}: Function returns an array that is made of two sub-arrays
@@ -230,7 +230,7 @@ module.exports.partition = partition;
 
 
 /**
- * map: Designed to loop over a collection, Array or Object, and applies the action Function to each value in the collection
+ * map: Designed to create a new array populated with the results of calling a provided function on every element in the calling array
  * @param {Array or Object} collection: Function takes in an input array or object over which to iterate
  * @param {Function} action: The Function to be applied to each value in the collection
  * @return {Array}: Function returns the value of each Function call in a new array
@@ -268,7 +268,7 @@ exports.module.pluck = pluck;
 
 
 /**
- * every: Designed to loop over a collection, Array or Object, and applies the action Function to each value in the collection 
+ * every: Designed to test whether all elements in the input array pass the test implemented by the provided function. It returns a boolean value. 
  * @param {Array or Object} collection: The collection over which to iterate
  * @param {Function} action: The Function to be applied to each value in the collection
  * @return {Boolean}: Function returns a boolean 
@@ -311,7 +311,7 @@ module.exports.every = every;
 
 
 /**
- * reduce: Designed to loop over an array with a starting point of seed and applies the action function to each value in collection
+ * reduce: Designed to execute a callback function on each element of the input array, in order, passing in the return value from the calculation on the preceeding element, resulting in a single value.
  * @param {Array}: Function takes in an input array
  * @param {Function} action: The Function to be applied to each value in the array
  * @param {Seed}: Function takes in an input seed as an initial starting value
